@@ -1,41 +1,88 @@
-Library Management System -MAD2
-Technologies Used
-Flask
-Vue3
-Redis
-Celery
-SQLite
-Installation
-Please run the following commands on the terminal.
+# Library Management System - MAD2
 
-.venv/Scripts/Activate.ps1 or source .venv/bin/activate
+A multi-user library management system built with Flask, Vue3, Redis, Celery, and SQLite.
 
+## Technologies Used
+- Flask
+- Vue3
+- Redis
+- Celery
+- SQLite
+
+## Installation
+
+## Backend Setup
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   
+2. Set up and activate the virtual environment:
+
+- On Windows:
+```bash
+.venv/Scripts/Activate.ps1
+```
+- On Linux/MacOS:
+```bash
+source .venv/bin/activate
+```
+3. Upgrade pip:
+```bash
 pip install --upgrade pip
+```
 
+4. Install the required dependencies:
+```bash
 pip install -r requirements.txt
-Once the setup is done, use the following script in the terminal to activate the virtual environment-
+```
 
-.venv/Scripts/Activate.ps1 or source .venv/bin/activate
+### Running the Backend
 
-Then use the following script in the terminal to run the code-
+1. Activate the virtual environment (if not already active):
 
-python upload_initial_data.py
-Use the following script to deactivate the virtual environment-
+- On Windows:
+```bash
+.venv/Scripts/Activate.ps1
+```
+- On Linux/MacOS:
+```bash
+source .venv/bin/activate
+```
 
-deactivate
+### Running Redis, Celery, and Mailhog Services
 
-To run the redis, celery and mailhog services-
-
+1. Run the Celery worker:
+```bash
 celery -A main:celery_app worker --loglevel INFO
+```
+
+2. Run the Celery beat scheduler:
+```bash
 celery -A main:celery_app beat --loglevel INFO
+```
+
+3. Run MailHog (for testing email sending):
+```bash
 go/bin/MailHog
-In case of any problem in running the redis server, run the following commands-
+```
 
+### In Case of Redis Server Issues
+
+1. If there are problems running the Redis server, stop it first:
+```bash
 sudo service redis-server stop
-To install all the vue dependencies for the frontend-
+```
 
+## Frontend Setup
+
+1. Install all Vue dependencies:
+```bash
 npm install
+```
 
-To start the frontend-
-
+2. Start the frontend:
+```bash
 npm run serve
+```
